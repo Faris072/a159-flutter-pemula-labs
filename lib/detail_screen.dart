@@ -1,14 +1,13 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:wisatabandung/model/tourism_place.dart';
 
-var informationTextStyle = TextStyle(fontFamily: 'Oxygen');
+var informationTextStyle = const TextStyle(fontFamily: 'Oxygen');
 
 class DetailScreen extends StatelessWidget {
   final TourismPlace place;
 
-  DetailScreen({required this.place});
+  const DetailScreen({Key? key, required this.place}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +26,7 @@ class DetailScreen extends StatelessWidget {
 class DetailMobilePage extends StatelessWidget {
   final TourismPlace place;
 
-  DetailMobilePage({required this.place});
+  const DetailMobilePage({Key? key, required this.place}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +47,7 @@ class DetailMobilePage extends StatelessWidget {
                         CircleAvatar(
                           backgroundColor: Colors.grey,
                           child: IconButton(
-                            icon: Icon(
+                            icon: const Icon(
                               Icons.arrow_back,
                               color: Colors.white,
                             ),
@@ -57,7 +56,7 @@ class DetailMobilePage extends StatelessWidget {
                             },
                           ),
                         ),
-                        FavoriteButton(),
+                        const FavoriteButton(),
                       ],
                     ),
                   ),
@@ -65,25 +64,25 @@ class DetailMobilePage extends StatelessWidget {
               ],
             ),
             Container(
-              margin: EdgeInsets.only(top: 16.0),
+              margin: const EdgeInsets.only(top: 16.0),
               child: Text(
                 place.name,
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 30.0,
                   fontFamily: 'Staatliches',
                 ),
               ),
             ),
             Container(
-              margin: EdgeInsets.symmetric(vertical: 16.0),
+              margin: const EdgeInsets.symmetric(vertical: 16.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Column(
                     children: <Widget>[
-                      Icon(Icons.calendar_today),
-                      SizedBox(height: 8.0),
+                      const Icon(Icons.calendar_today),
+                      const SizedBox(height: 8.0),
                       Text(
                         place.openDays,
                         style: informationTextStyle,
@@ -92,8 +91,8 @@ class DetailMobilePage extends StatelessWidget {
                   ),
                   Column(
                     children: <Widget>[
-                      Icon(Icons.access_time),
-                      SizedBox(height: 8.0),
+                      const Icon(Icons.access_time),
+                      const SizedBox(height: 8.0),
                       Text(
                         place.openTime,
                         style: informationTextStyle,
@@ -102,8 +101,8 @@ class DetailMobilePage extends StatelessWidget {
                   ),
                   Column(
                     children: <Widget>[
-                      Icon(Icons.monetization_on),
-                      SizedBox(height: 8.0),
+                      const Icon(Icons.monetization_on),
+                      const SizedBox(height: 8.0),
                       Text(
                         place.ticketPrice,
                         style: informationTextStyle,
@@ -114,11 +113,11 @@ class DetailMobilePage extends StatelessWidget {
               ),
             ),
             Container(
-              padding: EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(16.0),
               child: Text(
                 place.description,
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 16.0,
                   fontFamily: 'Oxygen',
                 ),
@@ -149,7 +148,7 @@ class DetailMobilePage extends StatelessWidget {
 class DetailWebPage extends StatefulWidget {
   final TourismPlace place;
 
-  DetailWebPage({required this.place});
+  const DetailWebPage({Key? key, required this.place}) : super(key: key);
 
   @override
   _DetailWebPageState createState() => _DetailWebPageState();
@@ -175,14 +174,14 @@ class _DetailWebPageState extends State<DetailWebPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text(
+                const Text(
                   'Wisata Bandung',
                   style: TextStyle(
                     fontFamily: 'Staatliches',
                     fontSize: 32,
                   ),
                 ),
-                SizedBox(height: 32),
+                const SizedBox(height: 32),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -193,7 +192,7 @@ class _DetailWebPageState extends State<DetailWebPage> {
                             child: Image.asset(widget.place.imageAsset),
                             borderRadius: BorderRadius.circular(10),
                           ),
-                          SizedBox(height: 16),
+                          const SizedBox(height: 16),
                           Scrollbar(
                             isAlwaysShown: true,
                             controller: _scrollController,
@@ -218,7 +217,7 @@ class _DetailWebPageState extends State<DetailWebPage> {
                         ],
                       ),
                     ),
-                    SizedBox(width: 32),
+                    const SizedBox(width: 32),
                     Expanded(
                       child: Card(
                         child: Container(
@@ -230,7 +229,7 @@ class _DetailWebPageState extends State<DetailWebPage> {
                                 child: Text(
                                   widget.place.name,
                                   textAlign: TextAlign.center,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontSize: 30.0,
                                     fontFamily: 'Staatliches',
                                   ),
@@ -242,32 +241,32 @@ class _DetailWebPageState extends State<DetailWebPage> {
                                 children: [
                                   Row(
                                     children: <Widget>[
-                                      Icon(Icons.calendar_today),
-                                      SizedBox(width: 8.0),
+                                      const Icon(Icons.calendar_today),
+                                      const SizedBox(width: 8.0),
                                       Text(
                                         widget.place.openDays,
                                         style: informationTextStyle,
                                       ),
                                     ],
                                   ),
-                                  FavoriteButton(),
+                                  const FavoriteButton(),
                                 ],
                               ),
                               Row(
                                 children: <Widget>[
-                                  Icon(Icons.access_time),
-                                  SizedBox(width: 8.0),
+                                  const Icon(Icons.access_time),
+                                  const SizedBox(width: 8.0),
                                   Text(
                                     widget.place.openTime,
                                     style: informationTextStyle,
                                   ),
                                 ],
                               ),
-                              SizedBox(height: 8.0),
+                              const SizedBox(height: 8.0),
                               Row(
                                 children: <Widget>[
-                                  Icon(Icons.monetization_on),
-                                  SizedBox(width: 8.0),
+                                  const Icon(Icons.monetization_on),
+                                  const SizedBox(width: 8.0),
                                   Text(
                                     widget.place.ticketPrice,
                                     style: informationTextStyle,
@@ -275,11 +274,11 @@ class _DetailWebPageState extends State<DetailWebPage> {
                                 ],
                               ),
                               Container(
-                                padding: EdgeInsets.symmetric(vertical: 16.0),
+                                padding: const EdgeInsets.symmetric(vertical: 16.0),
                                 child: Text(
                                   widget.place.description,
                                   textAlign: TextAlign.justify,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontSize: 16.0,
                                     fontFamily: 'Oxygen',
                                   ),
@@ -308,6 +307,8 @@ class _DetailWebPageState extends State<DetailWebPage> {
 }
 
 class FavoriteButton extends StatefulWidget {
+  const FavoriteButton({Key? key}) : super(key: key);
+
   @override
   _FavoriteButtonState createState() => _FavoriteButtonState();
 }

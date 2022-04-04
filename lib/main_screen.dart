@@ -1,25 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
 import 'package:wisatabandung/detail_screen.dart';
 import 'package:wisatabandung/model/tourism_place.dart';
 
 class MainScreen extends StatelessWidget {
+  const MainScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
         return Scaffold(
           appBar: AppBar(
-            title: Text('Wisata Bandung'),
+            title: const Text('Wisata Bandung'),
           ),
           body: LayoutBuilder(
             builder: (BuildContext context, BoxConstraints constraints) {
               if (constraints.maxWidth <= 600) {
-                return TourismPlaceList();
+                return const TourismPlaceList();
               } else if (constraints.maxWidth <= 1200) {
-                return TourismPlaceGrid(gridCount: 4);
+                return const TourismPlaceGrid(gridCount: 4);
               } else {
-                return TourismPlaceGrid(gridCount: 6);
+                return const TourismPlaceGrid(gridCount: 6);
               }
             },
           ),
@@ -32,7 +33,7 @@ class MainScreen extends StatelessWidget {
 class TourismPlaceGrid extends StatelessWidget {
   final int gridCount;
 
-  TourismPlaceGrid({required this.gridCount});
+  const TourismPlaceGrid({Key? key, required this.gridCount}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -61,12 +62,12 @@ class TourismPlaceGrid extends StatelessWidget {
                         fit: BoxFit.cover,
                       ),
                     ),
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
                     Padding(
                       padding: const EdgeInsets.only(left: 8.0),
                       child: Text(
                         place.name,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 16.0,
                           fontWeight: FontWeight.bold,
                         ),
@@ -90,6 +91,8 @@ class TourismPlaceGrid extends StatelessWidget {
 }
 
 class TourismPlaceList extends StatelessWidget {
+  const TourismPlaceList({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -120,9 +123,9 @@ class TourismPlaceList extends StatelessWidget {
                         children: <Widget>[
                           Text(
                             place.name,
-                            style: TextStyle(fontSize: 16.0),
+                            style: const TextStyle(fontSize: 16.0),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 10,
                           ),
                           Text(place.location),
