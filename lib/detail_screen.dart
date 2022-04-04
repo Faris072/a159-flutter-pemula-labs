@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:wisatabandung/model/tourism_place.dart';
 
-var informationTextStyle = TextStyle(fontFamily: 'Oxygen');
+var informationTextStyle = const TextStyle(fontFamily: 'Oxygen');
 
 class DetailScreen extends StatelessWidget {
   final TourismPlace place;
 
-  DetailScreen({required this.place});
+  const DetailScreen({Key? key, required this.place}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +27,7 @@ class DetailScreen extends StatelessWidget {
                         CircleAvatar(
                           backgroundColor: Colors.grey,
                           child: IconButton(
-                            icon: Icon(
+                            icon: const Icon(
                               Icons.arrow_back,
                               color: Colors.white,
                             ),
@@ -37,7 +36,7 @@ class DetailScreen extends StatelessWidget {
                             },
                           ),
                         ),
-                        FavoriteButton(),
+                        const FavoriteButton(),
                       ],
                     ),
                   ),
@@ -45,25 +44,25 @@ class DetailScreen extends StatelessWidget {
               ],
             ),
             Container(
-              margin: EdgeInsets.only(top: 16.0),
+              margin: const EdgeInsets.only(top: 16.0),
               child: Text(
                 place.name,
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 30.0,
                   fontFamily: 'Staatliches',
                 ),
               ),
             ),
             Container(
-              margin: EdgeInsets.symmetric(vertical: 16.0),
+              margin: const EdgeInsets.symmetric(vertical: 16.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Column(
                     children: <Widget>[
-                      Icon(Icons.calendar_today),
-                      SizedBox(height: 8.0),
+                      const Icon(Icons.calendar_today),
+                      const SizedBox(height: 8.0),
                       Text(
                         place.openDays,
                         style: informationTextStyle,
@@ -72,8 +71,8 @@ class DetailScreen extends StatelessWidget {
                   ),
                   Column(
                     children: <Widget>[
-                      Icon(Icons.access_time),
-                      SizedBox(height: 8.0),
+                      const Icon(Icons.access_time),
+                      const SizedBox(height: 8.0),
                       Text(
                         place.openTime,
                         style: informationTextStyle,
@@ -82,8 +81,8 @@ class DetailScreen extends StatelessWidget {
                   ),
                   Column(
                     children: <Widget>[
-                      Icon(Icons.monetization_on),
-                      SizedBox(height: 8.0),
+                      const Icon(Icons.monetization_on),
+                      const SizedBox(height: 8.0),
                       Text(
                         place.ticketPrice,
                         style: informationTextStyle,
@@ -94,11 +93,11 @@ class DetailScreen extends StatelessWidget {
               ),
             ),
             Container(
-              padding: EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(16.0),
               child: Text(
                 place.description,
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 16.0,
                   fontFamily: 'Oxygen',
                 ),
@@ -127,6 +126,8 @@ class DetailScreen extends StatelessWidget {
 }
 
 class FavoriteButton extends StatefulWidget {
+  const FavoriteButton({Key? key}) : super(key: key);
+
   @override
   _FavoriteButtonState createState() => _FavoriteButtonState();
 }
